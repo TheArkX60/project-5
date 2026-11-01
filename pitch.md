@@ -20,13 +20,48 @@ When you begin this step, start a fresh chat so its transcript stays clean. For 
 
 For each idea worth considering, note what it is, what appeals to you, who it's for, and the main feasibility concerns.
 
+**1. Tap-and-discover puzzle game (a bigger Project 4, new theme)**
+- What: A few outdoor locations where tapping objects and solving small puzzles triggers animations, sound, and music, and reveals ghosts to collect.
+- Appeals: I enjoyed Project 4, especially the ghosts, the tap-to-trigger stories, and the sound and music. It's a game with a clear structure and a charming tone.
+- For: Anyone, kids and adults. Solo play.
+- Feasibility: Builds on what I already know. Main concerns are the number of animated payoffs and sounds, puzzle clarity (players getting stuck), and making simple shapes look polished at a larger scope.
+
+**2. Simple, polished arcade or physics game**
+- What: One core mechanic (catch, dodge, launch, bounce) with escalating difficulty and a score.
+- Appeals: Clear, replayable game loop and little need for story.
+- For: Anyone, solo play.
+- Feasibility: Less planning but a lot of tuning. Whether the core loop is fun only shows up in play-testing, and "simple" games depend heavily on game feel and polish.
+
+**Set aside before developing:** a rhythm/music game, a point-and-click mystery (too much writing and branching), a care/garden management game (needs saving and lots of content), and extending my earlier AI resource calculator or weather app (not interested in building on someone else's work or repeating past projects).
+
 ### Choice
 
 Which idea you chose, why, and what you set aside.
 
+**Chosen: Idea 1, the tap-and-discover puzzle game.** I chose it because it builds on something I enjoyed making, and once the puzzle types and areas are planned, the work is mostly content and polish with lower risk. It lets the ghosts, animation, and sound carry the charm.
+
+**Current working decisions (open to change):**
+- Concept: find and collect ghosts across outdoor areas by solving tap puzzles.
+- Ghosts: the regular white ghosts for now.
+- Setting: night, so the white ghosts stand out.
+- Art: simple geometric shapes only, no AI-generated art, no found art.
+- Size: 3 areas, with a 4th as a stretch goal.
+- Puzzle types: discover-by-tapping (core), order (core), match (likely). Cause and effect is a maybe or stretch goal.
+
+**Set aside:** the arcade/physics game (less appealing than puzzles with no clear plan for its gameplay, and heavy on tuning), and timing puzzles (too dependent on chance).
+
 ### Branding
 
 For your chosen idea, explore a few possible titles, logos, and visual branding directions, such as color, type, and tone. Keep it simple.
+
+**Titles:** *Spirit Scouts* (current favorite, not final). Other candidates: *Ghostlight*, *Gather the Ghosts*, *Findlings*, *Nightlight*.
+
+**Logo ideas:** a single ghost shape peeking out from behind a letter; a ghost holding a tiny lantern; a scout-style badge with a ghost on it (fits *Spirit Scouts*).
+
+**Visual directions:**
+- Lantern-lit night: deep navy and indigo backgrounds, warm yellow and soft peach glows, white ghosts, rounded sans-serif type, calm and cozy.
+- Paper-cut night: layered dark shapes with soft shadows for depth, white ghosts as the brightest element.
+- Tone for either: simple, charming, welcoming to all ages.
 
 ## Pitch
 
@@ -36,46 +71,93 @@ Keep this section to about 1,000 words.
 
 What it is, in a few sentences.
 
+*Spirit Scouts* is a solo browser game for phones and computers. You are a scout, never shown on screen, searching a few moonlit outdoor areas for lost ghosts. You tap the scenery to see how it responds, and you solve small puzzles, such as tapping things in order or matching them, to coax each ghost out. Each ghost plays a short animation with sounds and joins your collection. The game is drawn entirely from simple geometric shapes, with no AI-generated or pre-made art.
+
 ### Title and branding
 
 Your working title, logo, and a short description of the visual branding. These may change during development; keep the current branding with the visual rules in `spec.md`.
+
+Working title: *Spirit Scouts*. The logo is a round scout badge with a stitched border and a white ghost at its center, with the title curved above it. The palette is a night sky of deep navy (#141B3C) and indigo (#2A2F6B), with soft-white ghosts (#F5F7FF) and warm yellow (#FFD86B) and peach (#FFB48A) glows as the only warm colors, so they draw the eye to what can be tapped. Type is rounded (Fredoka for titles, Nunito for text). The tone is gentle, cozy, and playful.
 
 ### Why this project
 
 Why you chose it and what makes it worth five weeks.
 
+I like games, and I want to build something that is mine instead of adding to someone else's work, as in Projects 1 and 2. Project 4 was the one I enjoyed most: the ghosts, the little tap-triggered stories, and the animations and sounds that rewarded each success. *Spirit Scouts* grows that into a full game with several areas, different puzzles, and a collection, without the Halloween theme. The challenge is making simple shapes look charming and polished at a larger scale.
+
 ### Users
 
 Who it's for and what they need from it.
+
+Anyone, from young kids to adults, playing alone on a phone or computer in short sessions. They need clear puzzles with a hint so nobody gets stuck, little or no reading, and no account or install: they open a link and play.
 
 ### Experience goals
 
 What Users should notice, feel, and be able to do.
 
+- **Notice:** that every tap gets a response with small animations and sounds, and that each area has its own look and sound.
+- **Feel:** curious, calm, and a little proud when a ghost appears. The game is never punishing: no timers, no losing, nothing scary.
+- **Be able to:** discover what's tappable, solve order and match puzzles, find every ghost in an area, and watch their collection grow.
+
 ### Technical goals
 
 What the system must do and the technical challenges you intend to take on.
+
+The system must run in a browser with touch and mouse input from a public link, track each area's puzzles, found ghosts, and collection, and play animations and sounds on successful taps. The challenges I want to take on:
+- **Structure at a larger scale.** Data-driven areas and reusable puzzle types, so a new area is mostly content and not new code.
+- **Polished shapes.** Consistent style rules, layered scenery, and smooth animation from geometric shapes alone.
+- **Sound.** Free sounds with usable licenses first, generated sounds when I can't find the right ones.
+- **Responsive, accessible play.** Layouts from phone to desktop, large touch targets, and hints.
 
 ### Starting point
 
 From scratch, extending one of your previous projects, or building on an open-source project. For open source, name the project and confirm its license permits your use. If you extend existing code, commit the original before your changes so your work is clearly distinguishable.
 
+From scratch. It draws on ideas from my Project 4 (tap-triggered animations, ghosts, order puzzles), but I'm not reusing its code or ghost drawings.
+
 ### Tech stack
 
 The technologies you plan to use and why, including any you are new to.
+
+- **HTML, CSS, and JavaScript** with SVG or CSS shapes, as in Project 4. It's simple and familiar, so the learning risk is low. The new part is organizing it for several areas.
+- **Sound:** licensed free sounds where possible, and the Web Audio API for the rest.
+- **GitHub Pages** for a public static site.
+- **AI tools:** Claude Code mainly. I may switch to another tool, such as Codex, if I run out of usage.
 
 ### MVP or critical function
 
 The smallest version that genuinely works end to end, or the riskiest function you will validate first, and how you will know it works.
 
+Phase 2 first proves the core: one scene on a public link where tapping and one order puzzle reveal a ghost with an animation and sound. The full MVP finishes that into one complete area with 2-3 ghosts, a hint, and a collection indicator, working on a phone and a computer. It works when someone who hasn't seen the game can find every ghost on their phone without my help. This also tests whether the art style holds at this scope, which is the main risk.
+
 ### Five-week map
 
 What each phase should produce, ending in a project that is publicly usable online or in person.
+
+| Phase | Dates | Produces |
+|---|---|---|
+| 2: Prove the core | Nov 2-9 | The core loop on a public link, then the finished first area. |
+| 3: Revise, expand | Nov 9-16 | Area 2, the match puzzle, and the collection screen. |
+| 4: Revise, expand | Nov 16-30 | Area 3, polish, accessibility and phone testing, and a version ready for peer review. |
+| 5: Finish and showcase | Nov 30-Dec 7 | Peer-review fixes, final verification, the breakdown, and the debrief. |
 
 ### Stretch goals
 
 Additional features in priority order, so running short on time removes the least important work first.
 
+1. A fourth area.
+2. One or two cause-and-effect puzzles.
+3. Saving found ghosts between visits.
+4. A background music track.
+5. A redesigned ghost or more ghost variety.
+
 ### Risks
 
 What could block or derail the project, and how you will find out early.
+
+- **Art looks too plain at scale:** test the first area with someone else early.
+- **Puzzles unclear or frustrating:** watch a new player, and add hints.
+- **Too much content:** check against the map weekly, and cut stretch goals and area 3 first.
+- **Sound licenses or quality:** check each license when I choose a sound, and fall back to generated sounds.
+- **Phone performance and touch:** test on a real phone in Phase 2.
+- **Running out of Claude usage:** keep the project documents current so another tool can continue.
